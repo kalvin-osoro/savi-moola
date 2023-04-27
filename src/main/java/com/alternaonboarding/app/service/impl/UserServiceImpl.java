@@ -63,8 +63,8 @@ public class UserServiceImpl implements UserService {
        }
            User user = new User();
            user.setFullName(signupDto.getFullName());
-           user.setNationalId(signupDto.getNationalId());
-           user.setDob(signupDto.getDob());
+           user.setIdNumber(signupDto.getIdNumber());
+           user.setDateOfBirth(signupDto.getDateOfBirth());
            user.setGender(signupDto.getGender());
            user.setPhoneNumber(signupDto.getPhoneNumber());
            user.setEmail(signupDto.getEmail());
@@ -127,11 +127,11 @@ public class UserServiceImpl implements UserService {
            }
            User user = new User();
            user.setFullName(signupDto.getFullName());
-           user.setNationalId(signupDto.getNationalId());
+           user.setIdNumber(signupDto.getIdNumber());
 
 //           user.setDob(signupDto.getDob());
 
-           user.setDob(signupDto.getDob());
+           user.setDateOfBirth(signupDto.getDateOfBirth());
 
            user.setGender(signupDto.getGender());
            user.setPhoneNumber(signupDto.getPhoneNumber());

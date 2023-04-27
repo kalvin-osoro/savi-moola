@@ -19,10 +19,10 @@ public class SignupDto {
 //    private String oneTimePassword;
 
     private String fullName;
-    private int nationalId;
+    private int idNumber;
 
     @Column(name = "date_of_birth")
-    private Date dob;
+    private Date dateOfBirth;
 
     private String gender;
 

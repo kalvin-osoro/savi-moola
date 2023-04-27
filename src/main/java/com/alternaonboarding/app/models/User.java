@@ -20,17 +20,17 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long id;
+    private  Integer id;
 
 
     private String fullName;
 
 
-    private int nationalId;
+    private int idNumber;
 
 
     @Column(name = "date_of_birth", columnDefinition = "DATE DEFAULT '1970-01-01'")
-    private Date dob;
+    private Date dateOfBirth;
 
 
 
@@ -50,13 +50,20 @@ public class User {
 
     private boolean verified = false;
 
-    @OneToMany(mappedBy = "user")
-    private List<Challenges> challenges;
+   @ToString.Exclude // Exclude challenges from toString to avoid lazy initialization errors
 
-    public User(String fullName, int nationalId, Date dob, String gender, String phoneNumber, String email, String pin ) {
+   @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private List<Challenge> challenges;
+
+
+    public User(int id) {
+        this.id = id;
+    }
+
+   public User(String fullName, int idNumber, Date dateOfBirth, String gender, String phoneNumber, String email, String pin ) {
         this.fullName = fullName;
-        this.nationalId = nationalId;
-        this.dob = dob;
+        this.idNumber = idNumber;
+        this.dateOfBirth = dateOfBirth;
         this.gender = gender;
         this.phoneNumber = phoneNumber;
         this.email = email;
